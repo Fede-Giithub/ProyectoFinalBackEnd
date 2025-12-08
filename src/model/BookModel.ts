@@ -4,19 +4,20 @@
 // 2 - habilita los métodos de manipulación de data
 
 import { model, Model, Schema } from "mongoose"
-import IProduct from "../interfaces/IProduct"
+import IBook from "../interfaces/IBook"
 
-const productSchema = new Schema<IProduct>({
+const bookSchema = new Schema<IBook>({
   name: { type: String, required: true },
   description: { type: String, default: "No tiene descripción" },
   stock: { type: Number, default: 0, min: 0 },
   category: { type: String, default: "No tiene categoria" },
   price: { type: Number, default: 0, min: 0 },
-  image: { type: String }
+  image: { type: String },
+  author: { type: String }
 }, {
   versionKey: false
 })
 
-const Product: Model<IProduct> = model("Product", productSchema)
+const Book: Model<IBook> = model("Book", bookSchema)
 
-export default Product
+export default Book

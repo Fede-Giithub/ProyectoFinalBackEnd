@@ -1,10 +1,11 @@
-interface IProduct {
+interface IBook {
   name: string,
   description: string,
   stock: number,
   category: string
   price: number,
-  image?: string
+  image?: string,
+  author:string
 }
 
-export default IProduct
+export default IBook
