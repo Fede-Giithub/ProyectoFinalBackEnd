@@ -2,14 +2,14 @@
 // LA REQUEST Y EL RESPONSE SIEMPRE ESTARÁN SOLO EN LOS CONTROLLERS
 
 import { Request, Response } from "express"
-import Product from "../model/ProductModel"
+import Book from "../model/BookModel"
 import { Types } from "mongoose"
-import { createProductSchema, updatedProductSchema } from "../validators/productValidator"
+import { createBookSchema, updatedBookSchema } from "../validators/bookValidator"
 
-class ProductController {
-  static getAllProducts = async (req: Request, res: Response): Promise<void | Response> => {
+class BookController {
+  static getAllBooks = async (req: Request, res: Response): Promise<void | Response> => {
     try {
-      const { name, stock, category, minPrice, maxPrice } = req.query
+      const { name, stock, category, minPrice, maxPrice,author } = req.query
       console.log(req.query)
 
       const filter: any = {}
@@ -25,15 +25,15 @@ class ProductController {
         if (maxPrice) filter.price.$lte = maxPrice
       }
 
-      const products = await Product.find(filter)
-      res.json({ success: true, data: products })
+      const books = await Book.find(filter)
+      res.json({ success: true, data: books })
     } catch (e) {
       const error = e as Error
       res.status(500).json({ success: false, error: error.message })
     }
   }
 
-  static getProduct = async (req: Request, res: Response): Promise<void | Response> => {
+  static getBook = async (req: Request, res: Response): Promise<void | Response> => {
     try {
       const { id } = req.params
 
@@ -41,26 +41,26 @@ class ProductController {
         return res.status(400).json({ success: false, error: "ID Inválido" })
       }
 
-      const product = await Product.findById(id)
+      const book = await Book.findById(id)
 
-      if (!product) {
-        return res.status(404).json({ success: false, error: "Producto no encontrado" })
+      if (!book) {
+        return res.status(404).json({ success: false, error: "Libro no encontrado" })
       }
 
-      res.status(200).json({ success: true, data: product })
+      res.status(200).json({ success: true, data: book })
     } catch (e) {
       const error = e as Error
       res.status(500).json({ success: false, error: error.message })
     }
   }
 
-  static addProduct = async (req: Request, res: Response): Promise<void | Response> => {
+  static addBook = async (req: Request, res: Response): Promise<void | Response> => {
     try {
       const { body, file } = req
 
-      const { name, description, price, category, stock } = body
+      const { name, description, price, category, stock,author } = body
 
-      if (!name || !description || !price || !category || !stock) {
+      if (!name || !description || !price || !category || !stock || !author) {
         return res.status(400).json({ message: "Todos los campos son requeridos" })
       }
 
@@ -70,52 +70,53 @@ class ProductController {
         category,
         stock: +stock,
         price: +price,
-        image: file?.path
+        image: file?.path,
+        author
       }
 
-      const validator = createProductSchema.safeParse(dataToValidate)
+      const validator = createBookSchema.safeParse(dataToValidate)
 
       if (!validator.success) {
         return res.status(400).json({ success: false, error: validator.error.flatten().fieldErrors });
       }
 
-      const newProduct = new Product(validator.data)
+      const newBook = new Book(validator.data)
 
-      await newProduct.save()
-      res.status(201).json({ success: true, data: newProduct })
+      await newBook.save()
+      res.status(201).json({ success: true, data: newBook })
     } catch (e) {
       const error = e as Error
       res.status(500).json({ success: false, error: error.message })
     }
   }
 
-  static updateProduct = async (req: Request, res: Response): Promise<void | Response> => {
+  static updateBook= async (req: Request, res: Response): Promise<void | Response> => {
     try {
       const { id } = req.params
       const { body } = req
 
       if (!Types.ObjectId.isValid(id)) res.status(400).json({ succes: false, error: "ID Inválido" })
 
-      const validator = updatedProductSchema.safeParse(body)
+      const validator = updatedBookSchema.safeParse(body)
 
       if (!validator.success) {
         return res.status(400).json({ success: false, error: validator.error.flatten().fieldErrors });
       }
 
-      const updatedProduct = await Product.findByIdAndUpdate(id, validator.data, { new: true })
+      const updatedBook = await Book.findByIdAndUpdate(id, validator.data, { new: true })
 
-      if (!updatedProduct) {
-        return res.status(404).json({ success: false, error: "Producto no encontrado" })
+      if (!updatedBook) {
+        return res.status(404).json({ success: false, error: "Libro no encontrado" })
       }
 
-      res.json({ success: true, data: updatedProduct })
+      res.json({ success: true, data: updatedBook })
     } catch (e) {
       const error = e as Error
       res.status(500).json({ success: false, error: error.message })
     }
   }
 
-  static deleteProduct = async (req: Request, res: Response): Promise<void | Response> => {
+  static deleteBook = async (req: Request, res: Response): Promise<void | Response> => {
     try {
       const id = req.params.id
 
@@ -123,13 +124,13 @@ class ProductController {
         return res.status(400).json({ error: "ID Inválido" });
       }
 
-      const deletedProduct = await Product.findByIdAndDelete(id)
+      const deletedBook = await Book.findByIdAndDelete(id)
 
-      if (!deletedProduct) {
-        return res.status(404).json({ success: false, error: "Producto no encontrado" })
+      if (!deletedBook) {
+        return res.status(404).json({ success: false, error: "Libro no encontrado" })
       }
 
-      res.json({ success: true, data: deletedProduct })
+      res.json({ success: true, data: deletedBook })
     } catch (e) {
       const error = e as Error
       res.status(500).json({ error: error.message })
@@ -137,4 +138,4 @@ class ProductController {
   }
 }
 
-export default ProductController
+export default BookController
