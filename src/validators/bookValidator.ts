@@ -6,7 +6,8 @@ const bookSchemaValidator = z.object({
   price: z.number().min(10, "El valor debe ser mayor a 10"),
   category: z.string().min(2),
   stock: z.number().positive(),
-  image: z.string().default("No contiene imagen")
+  image: z.string().default("No contiene imagen"),
+  author: z.string().min(4)
 })
 
 export const createBookSchema = bookSchemaValidator

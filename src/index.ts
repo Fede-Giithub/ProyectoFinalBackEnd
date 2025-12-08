@@ -2,7 +2,7 @@
 import express, { Request, Response } from "express"
 import cors from "cors"
 import connectDB from "./config/mongodb"
-import productRouter from "./routes/productRoutes"
+import bookRouter from "./routes/bookRoutes"
 import authRouter from "./routes/authRouter"
 import morgan from "morgan"
 import IUserTokenPayload from "./interfaces/IUserTokenPayload"
@@ -45,7 +45,7 @@ app.get("/", (__: Request, res: Response) => {
 
 app.use("/auth", authRouter)
 // http://localhost:3000/products?
-app.use("/products", productRouter)
+app.use("/books", bookRouter)
 
 // enviar correo electrónico
 app.post("/email/send", emailService)
