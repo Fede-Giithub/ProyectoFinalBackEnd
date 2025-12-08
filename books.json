@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "name": "El Silencio de los Corderos",
+    "description": "Una investigación llena de tensión psicológica y suspenso.",
+    "stock": 12,
+    "category": "misterio",
+    "price": 8900,
+    "author": "Thomas Harris"
+  },
+  {
+    "id": 2,
+    "name": "Sherlock Holmes: Estudio en Escarlata",
+    "description": "La primera aparición del famoso detective Sherlock Holmes.",
+    "stock": 20,
+    "category": "misterio",
+    "price": 7500,
+    "author": "Arthur Conan Doyle"
+  },
+  {
+    "id": 3,
+    "name": "Dune",
+    "description": "Una épica historia situada en un desierto lleno de política y poder.",
+    "stock": 15,
+    "category": "ciencia_ficcion",
+    "price": 12000,
+    "author": "Frank Herbert"
+  },
+  {
+    "id": 4,
+    "name": "Neuromancer",
+    "description": "El libro que inició el subgénero cyberpunk.",
+    "stock": 8,
+    "category": "ciencia_ficcion",
+    "price": 9800,
+    "author": "William Gibson"
+  },
+  {
+    "id": 5,
+    "name": "Harry Potter y la Piedra Filosofal",
+    "description": "El inicio de la saga del joven mago.",
+    "stock": 35,
+    "category": "fantasia",
+    "price": 15000,
+    "author": "J. K. Rowling"
+  },
+  {
+    "id": 6,
+    "name": "El Hobbit",
+    "description": "La aventura de Bilbo Bolsón en la Tierra Media.",
+    "stock": 18,
+    "category": "fantasia",
+    "price": 13200,
+    "author": "J.R.R. Tolkien"
+  },
+  {
+    "id": 7,
+    "name": "El Resplandor",
+    "description": "Una historia aterradora en un hotel aislado.",
+    "stock": 10,
+    "category": "terror",
+    "price": 11000,
+    "author": "Stephen King"
+  },
+  {
+    "id": 8,
+    "name": "El Exorcista",
+    "description": "Una niña poseída y un exorcismo inolvidable.",
+    "stock": 5,
+    "category": "terror",
+    "price": 9500,
+    "author": "William Peter Blatty"
+  },
+  {
+    "id": 9,
+    "name": "El Niño con el Pijama de Rayas",
+    "description": "Una historia emotiva en el contexto de la Segunda Guerra Mundial.",
+    "stock": 22,
+    "category": "realista",
+    "price": 8400,
+    "author": "John Boyne"
+  },
+  {
+    "id": 10,
+    "name": "Bajo la Misma Estrella",
+    "description": "Una novela emotiva sobre dos jóvenes que se enamoran.",
+    "stock": 16,
+    "category": "realista",
+    "price": 7600,
+    "author": "John Green"
+  },
+  {
+    "id": 11,
+    "name": "La Chica del Tren",
+    "description": "Una mujer que presencia algo que no debería haber visto.",
+    "stock": 25,
+    "category": "misterio",
+    "price": 8900,
+    "author": "Paula Hawkins"
+  },
+  {
+    "id": 12,
+    "name": "Fundación",
+    "description": "La caída y renacimiento de un imperio galáctico.",
+    "stock": 14,
+    "category": "ciencia_ficcion",
+    "price": 11500,
+    "author": "Isaac Asimov"
+  },
+  {
+    "id": 13,
+    "name": "La Historia Interminable",
+    "description": "Un niño descubre un libro que lo transporta a un mundo mágico.",
+    "stock": 11,
+    "category": "fantasia",
+    "price": 10900,
+    "author": "Michael Ende"
+  },
+  {
+    "id": 14,
+    "name": "Drácula",
+    "description": "El clásico de vampiros más importante de la literatura.",
+    "stock": 9,
+    "category": "terror",
+    "price": 8700,
+    "author": "Bram Stoker"
+  },
+  {
+    "id": 15,
+    "name": "El Diario de Ana Frank",
+    "description": "El conmovedor diario de una niña judía durante la guerra.",
+    "stock": 30,
+    "category": "realista",
+    "price": 9000,
+    "author": "Ana Frank"
+  }
+]
