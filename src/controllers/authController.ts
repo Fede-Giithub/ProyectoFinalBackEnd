@@ -3,6 +3,8 @@ import bcrypt from "bcryptjs"
 import User from "../model/UserModel"
 import jwt from "jsonwebtoken"
 import dotenv from "dotenv"
+import { createAuthSchema } from "../validators/authValidator"
+
 dotenv.config({ path: ".env.example" })
 
 const SECRET_KEY = process.env.JWT_SECRET!
@@ -16,9 +18,18 @@ class AuthController {
       const { email, password } = req.body
 
       if (!email || !password) {
-        return res.status(400).json({ success: false, error: "Datos invalidos" })
+        return res.status(400).json({ success: false, error: "Todos los campos son requeridos" })
       }
-
+      const dataToValidate = {
+              email,
+              password 
+            }
+      
+      const validator = createAuthSchema.safeParse(dataToValidate)
+      
+      if (!validator.success) {
+              return res.status(400).json({ success: false, error: validator.error.flatten().fieldErrors });
+        }
       const user = await User.findOne({ email })
 
       if (user) {
@@ -45,9 +56,18 @@ class AuthController {
       const { email, password } = req.body
 
       if (!email || !password) {
-        return res.status(400).json({ success: false, error: "Datos invalidos" })
+        return res.status(400).json({ success: false, error: "Todos los campos son requeridos" })
       }
-
+      const dataToValidate = {
+              email,
+              password 
+            }
+      
+      const validator = createAuthSchema.safeParse(dataToValidate)
+      
+      if (!validator.success) {
+              return res.status(400).json({ success: false, error: validator.error.flatten().fieldErrors });
+        }
       const user = await User.findOne({ email })
 
       if (!user) {
