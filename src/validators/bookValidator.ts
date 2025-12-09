@@ -1,13 +1,13 @@
 import { z } from "zod"
 
 const bookSchemaValidator = z.object({
-  name: z.string().min(4),
-  description: z.string().min(10),
+  name: z.string().min(2),
+  description: z.string().min(2),
   price: z.number().min(10, "El valor debe ser mayor a 10"),
   category: z.string().min(2),  
   stock: z.number().positive(),
   image: z.string().default("No contiene imagen"),
-  author: z.string().min(4)
+  author: z.string().min(2)
 })
 
 export const createBookSchema = bookSchemaValidator
