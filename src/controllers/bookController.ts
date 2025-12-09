@@ -24,6 +24,7 @@ class BookController {
         // minPrice -> si tengo un precio mínimo quiero un objeto con un precio mas grande.
         if (maxPrice) filter.price.$lte = maxPrice
       }
+       if (author) filter.author = new RegExp(String(author), "i")
 
       const books = await Book.find(filter)
       res.json({ success: true, data: books })
@@ -95,7 +96,9 @@ class BookController {
       const { id } = req.params
       const { body } = req
 
-      if (!Types.ObjectId.isValid(id)) res.status(400).json({ succes: false, error: "ID Inválido" })
+      if (!Types.ObjectId.isValid(id)) {
+          return res.status(400).json({ success: false, error: "ID Inválido" });
+}
 
       const validator = updatedBookSchema.safeParse(body)
 

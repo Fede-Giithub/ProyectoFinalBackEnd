@@ -1,0 +1,14 @@
+::1 POST /auth/register 201 156 - 142.334 ms
+::1 POST /auth/login 500 64 - 81.204 ms
+::1 POST /auth/login 200 230 - 107.790 ms
+::1 GET /books 200 26 - 24.763 ms
+::1 GET /books 200 26 - 2.419 ms
+::1 GET /books 200 26 - 2.689 ms
+::1 POST /books 201 210 - 20.075 ms
+::1 PUT /books/6937598b56ac60fa646c12cc 404 54 - 0.562 ms
+::1 DELETE /books/6937598b56ac60fa646c12cc 401 48 - 0.369 ms
+::1 DELETE /books/6937598b56ac60fa646c12cc 200 210 - 15.201 ms
+::1 GET /books 200 26 - 3.837 ms
+::1 POST /books 201 210 - 4.282 ms
+::1 GET /books 200 212 - 2.750 ms
+::1 DELETE /books/6937598b56ac60fa646c12cc 404 47 - 2.430 ms

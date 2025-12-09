@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs"
 import User from "../model/UserModel"
 import jwt from "jsonwebtoken"
 import dotenv from "dotenv"
-dotenv.config()
+dotenv.config({ path: ".env.example" })
 
 const SECRET_KEY = process.env.JWT_SECRET!
 

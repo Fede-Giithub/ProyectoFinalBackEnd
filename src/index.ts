@@ -12,7 +12,7 @@ import path from "node:path"
 import fs from "node:fs"
 import emailService from "./services/emailService"
 
-dotenv.config()
+dotenv.config({ path: ".env.example" })
 
 declare global {
   namespace Express {
