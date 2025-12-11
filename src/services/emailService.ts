@@ -17,7 +17,7 @@ const emailService = async (req: Request, res: Response) => {
       html: createTemplate(emailUser, message)
     })
 
-    res.json({ succes: true, message: "Correo fue enviado exitosamente", info })
+    res.json({ succes: true, message: "Has creado tu cuenta!.", info })
 
   } catch (e) {
     const error = e as Error

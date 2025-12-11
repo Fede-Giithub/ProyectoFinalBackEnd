@@ -266,3 +266,13 @@
 ::1 GET /books? - - - - ms
 ::1 GET /books? 200 401 - 24.108 ms
 ::1 GET /books? 304 - - 5.641 ms
+::1 GET /books? 304 - - 25.120 ms
+::1 GET /books? 304 - - 4.528 ms
+::1 POST /auth/login 401 41 - 5.267 ms
+::1 POST /auth/login 401 41 - 2.067 ms
+::1 POST /auth/login 401 41 - 1.952 ms
+::1 POST /auth/login 429 75 - 0.603 ms
+::1 POST /auth/login 429 75 - 0.335 ms
+::1 POST /auth/login 429 75 - 0.300 ms
+::1 POST /auth/login 429 75 - 0.541 ms
+::1 POST /auth/login 429 75 - 0.490 ms
