@@ -1,0 +1,4 @@
+::1 GET /books? 304 - - 18.009 ms
+::1 GET /books? 304 - - 4.702 ms
+::1 GET /books?category=misterio 304 - - 3.076 ms
+::1 GET /books?category=fantasia 200 212 - 2.586 ms
